@@ -64,6 +64,8 @@ var questionsAnswered = 0;
 var answeredCorrectly = 0;
 var answeredIncorrectly = 0;
 var fellAsleep = 0;
+
+// Time based stuff starts here
 var time = 30;
 var itCounts;
 var countTime = function() {
@@ -87,3 +89,52 @@ var countTime = function() {
     }
   }
 };
+
+// Functions start getting defined here
+
+// I was really tired when I decided to make this, thus the existential crisis of the variable / parameter
+var wrongAnswer = function(iExistOnlyToDie) {
+  questionsAnswered++;
+  if (time <= 0) {
+    $(".question").text("Time is Up!");
+    fellAsleep++;
+  } else {
+    $(".question").text("Get gud, bro!");
+    answeredIncorrectly++;
+  }
+  clearInterval(itCounts);
+  $("#answerDiv").hide();
+  $("#displayDiv").show();
+  $("#rightWrong").text(
+    "The Correct Answers were: " +
+      iExistOnlyToDie.correctIchi +
+      "and " +
+      iExistOnlyToDie.correctNii
+  );
+  $("#pic").show();
+  $("#pic").attr("src", iExistOnlyToDie.img);
+  setTimeout(incrementQuestion, 3000);
+};
+// This needs a logic section added to handle randomization of placement of answers
+// And, of course, the placement itself ($('label[for="#answer1"').text(questionIchi.correctIchi) etc)
+var incrementQuestion = function() {
+  $("#answerDiv").show();
+  $("#displayDiv").hide();
+  time = 30;
+  itCounts = setInterval(count, 1000);
+};
+var notWrong = function(parameter) {
+  questionsAnswered++;
+  answeredCorrectly++;
+  clearInterval(itCounts);
+  $(".question").text("You got it!");
+  $("#answerDiv").hide();
+  $("#displayDiv").show();
+  $("#rightWrong").text("");
+  $("#pic").attr("src", parameter.img);
+  $("#pic").show();
+  setTimeout(incrementQuestion, 3000);
+};
+
+// Starting click events here
+$('')
