@@ -243,32 +243,32 @@ console.log('firstBox.checked' + firstBox.checked)
       break;
       case 1:
       if (!firstBox.checked && secondBox.checked && thirdBox.checked && !fourthBox.checked && !fifthBox.checked) {
-        return notWrong(questionIchi);
+        return notWrong(questionNii);
       } else return wrongAnswer(questionNii);
       break;
       case 2:
       if (!firstBox.checked && !secondBox.checked && thirdBox.checked && !fourthBox.checked && fifthBox.checked) {
-        return notWrong(questionIchi);
+        return notWrong(questionSan);
       } else return wrongAnswer(questionSan);
       break;
       case 3:
       if (firstBox.checked && !secondBox.checked && !thirdBox.checked && !fourthBox.checked && fifthBox.checked) {
-        return notWrong(questionIchi);
+        return notWrong(questionYon);
       } else return wrongAnswer(questionYon);
       break;
       case 4:
       if (!firstBox.checked && !secondBox.checked && !thirdBox.checked && fourthBox.checked && fifthBox.checked) {
-        return notWrong(questionIchi);
+        return notWrong(questionGo);
       } else return wrongAnswer(questionGo);
       break;
       case 5:
       if (!firstBox.checked && secondBox.checked && !thirdBox.checked && !fourthBox.checked && fifthBox.checked) {
-        return notWrong(questionIchi);
+        return notWrong(questionRoku);
       } else return wrongAnswer(questionRoku);
       break;
       case 6:
       if (!firstBox.checked && !secondBox.checked && !thirdBox.checked && fourthBox.checked && fifthBox.checked) {
-        return notWrong(questionIchi);
+        return notWrong(questionNana);
       } else return wrongAnswer(questionNana);
       break;
       default: console.log("Something is not quite right...")
