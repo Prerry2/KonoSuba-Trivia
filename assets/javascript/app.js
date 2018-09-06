@@ -3,7 +3,11 @@ var secondBox = document.getElementById("answer2");
 var thirdBox = document.getElementById("answer3");
 var fourthBox = document.getElementById("answer4");
 var fifthBox = document.getElementById("answer5");
-
+firstBox.checked = false;
+secondBox.checked = false;
+thirdBox.checked = false;
+fourthBox.checked = false;
+fifthBox.checked = false;
 var questionIchi = {
   content: "What are the weaknesses of the Steal skill?",
   correctIchi:
@@ -14,7 +18,7 @@ var questionIchi = {
   trap: "You must not be noticed by your target to use it",
   admiralAckbar:
     "It can be prevented from working by the use of magic or items",
-    img: 'assets/images/steal.jpg'
+  img: "assets/images/steal.jpg"
 };
 var questionNii = {
   content: "What are the weaknesses of the Explosion spell?",
@@ -24,7 +28,7 @@ var questionNii = {
   admiralAckbar: "Only members of the Crimson Demon Clan may learn this magic",
   trap: "Only the undead know the incantation",
   // https://www.youtube.com/watch?v=coYieIF8I5M
-  img: 'assets/images/explosion.jpg'
+  img: "assets/images/explosion.jpg"
 };
 var questionSan = {
   content: "Farmers:",
@@ -34,7 +38,7 @@ var questionSan = {
     "Are weaklings that must hire adventurers to be able to do their work",
   admiralAckbar: "Struggle to earn enough money to survive",
   trap: "Tend to eat food that give poor experience gains",
-  img: 'assets/images/cabbage.jpg'
+  img: "assets/images/cabbage.jpg"
 };
 var questionYon = {
   content: "The Demon King:",
@@ -43,7 +47,7 @@ var questionYon = {
   itsACarp: "Is the most feared entity in the world",
   admiralAckbar: "Has godly powers",
   trap: "Has a friendly relationship with the Crimson Demon Clan",
-  img: 'assets/images/demonlolwut.png'
+  img: "assets/images/demonlolwut.png"
 };
 var questionGo = {
   content: "The Axis Cult:",
@@ -52,7 +56,7 @@ var questionGo = {
   itsACarp: "Worships the goddess Eris",
   admiralAckbar: "Are known for being a moderate religious group",
   trap: "Spit upon worshippers of Aqua",
-  img: 'assets/images/aqua.jpg'
+  img: "assets/images/aqua.jpg"
 };
 var questionRoku = {
   content: "Kazuma:",
@@ -62,7 +66,7 @@ var questionRoku = {
   itsACarp: "Sexually harasses all his party members frequently",
   admiralAckbar: "Is a brave man",
   trap: "Has strong stats",
-  img: 'assets/images/kazuma.jpg'
+  img: "assets/images/kazuma.jpg"
 };
 var questionNana = {
   content: "The undead:",
@@ -71,7 +75,7 @@ var questionNana = {
   itsACarp: "Are weak against fire",
   admiralAckbar: "Love Chris",
   trap: "Are weak against water",
-  img: 'assets/images/undead.png'
+  img: "assets/images/undead.png"
 };
 // Still need image methods to all above objects
 var questionsAnswered = 0;
@@ -197,6 +201,11 @@ var incrementQuestion = function() {
       $("#rightWrong").text(answeredCorrectly + " Answers Right!");
       $("#justWrong").text(answeredIncorrectly + " Answers Wrong!");
       $("#lazy").text(fellAsleep + " Unanswered.");
+      firstBox.checked = false;
+      secondBox.checked = false;
+      thirdBox.checked = false;
+      fourthBox.checked = false;
+      fifthBox.checked = false;
       $("#start")
         .text("Start Over?")
         .show();
@@ -237,49 +246,127 @@ $("#start").on("click", function() {
 });
 
 $(document).on("click", "#submit", function() {
-  console.log(document.getElementById("answer1").checked);
+  // console.log(document.getElementById("answer1").checked);
   // Above was used to figure out the checkboxes and how to retrieve their state
   // Left in for reference and memory reinforcement.
-console.log('firstBox' + firstBox)
-console.log('firstBox.checked' + firstBox.checked)
+  console.log("firstBox" + firstBox);
+  console.log("firstBox.checked" + firstBox.checked);
 
   switch (questionsAnswered) {
     case 0:
-      if (firstBox.checked && fourthBox.checked && !secondBox.checked && !thirdBox.checked && !fifthBox.checked) {
+      if (
+        firstBox.checked &&
+        fourthBox.checked &&
+        !secondBox.checked &&
+        !thirdBox.checked &&
+        !fifthBox.checked
+      ) {
+        firstBox.checked = false;
+        secondBox.checked = false;
+        thirdBox.checked = false;
+        fourthBox.checked = false;
+        fifthBox.checked = false;
         return notWrong(questionIchi);
       } else return wrongAnswer(questionIchi);
       break;
-      case 1:
-      if (!firstBox.checked && secondBox.checked && thirdBox.checked && !fourthBox.checked && !fifthBox.checked) {
+    case 1:
+      if (
+        !firstBox.checked &&
+        secondBox.checked &&
+        thirdBox.checked &&
+        !fourthBox.checked &&
+        !fifthBox.checked
+      ) {
+        firstBox.checked = false;
+        secondBox.checked = false;
+        thirdBox.checked = false;
+        fourthBox.checked = false;
+        fifthBox.checked = false;
         return notWrong(questionNii);
       } else return wrongAnswer(questionNii);
       break;
-      case 2:
-      if (!firstBox.checked && !secondBox.checked && thirdBox.checked && !fourthBox.checked && fifthBox.checked) {
+    case 2:
+      if (
+        !firstBox.checked &&
+        !secondBox.checked &&
+        thirdBox.checked &&
+        !fourthBox.checked &&
+        fifthBox.checked
+      ) {
+        firstBox.checked = false;
+        secondBox.checked = false;
+        thirdBox.checked = false;
+        fourthBox.checked = false;
+        fifthBox.checked = false;
         return notWrong(questionSan);
       } else return wrongAnswer(questionSan);
       break;
-      case 3:
-      if (firstBox.checked && !secondBox.checked && !thirdBox.checked && !fourthBox.checked && fifthBox.checked) {
+    case 3:
+      if (
+        firstBox.checked &&
+        !secondBox.checked &&
+        !thirdBox.checked &&
+        !fourthBox.checked &&
+        fifthBox.checked
+      ) {
+        firstBox.checked = false;
+        secondBox.checked = false;
+        thirdBox.checked = false;
+        fourthBox.checked = false;
+        fifthBox.checked = false;
         return notWrong(questionYon);
       } else return wrongAnswer(questionYon);
       break;
-      case 4:
-      if (!firstBox.checked && !secondBox.checked && !thirdBox.checked && fourthBox.checked && fifthBox.checked) {
+    case 4:
+      if (
+        !firstBox.checked &&
+        !secondBox.checked &&
+        !thirdBox.checked &&
+        fourthBox.checked &&
+        fifthBox.checked
+      ) {
+        firstBox.checked = false;
+        secondBox.checked = false;
+        thirdBox.checked = false;
+        fourthBox.checked = false;
+        fifthBox.checked = false;
         return notWrong(questionGo);
       } else return wrongAnswer(questionGo);
       break;
-      case 5:
-      if (!firstBox.checked && secondBox.checked && !thirdBox.checked && !fourthBox.checked && fifthBox.checked) {
+    case 5:
+      if (
+        !firstBox.checked &&
+        secondBox.checked &&
+        !thirdBox.checked &&
+        !fourthBox.checked &&
+        fifthBox.checked
+      ) {
+        firstBox.checked = false;
+        secondBox.checked = false;
+        thirdBox.checked = false;
+        fourthBox.checked = false;
+        fifthBox.checked = false;
         return notWrong(questionRoku);
       } else return wrongAnswer(questionRoku);
       break;
-      case 6:
-      if (!firstBox.checked && !secondBox.checked && !thirdBox.checked && fourthBox.checked && fifthBox.checked) {
+    case 6:
+      if (
+        !firstBox.checked &&
+        !secondBox.checked &&
+        !thirdBox.checked &&
+        fourthBox.checked &&
+        fifthBox.checked
+      ) {
+        firstBox.checked = false;
+        secondBox.checked = false;
+        thirdBox.checked = false;
+        fourthBox.checked = false;
+        fifthBox.checked = false;
         return notWrong(questionNana);
       } else return wrongAnswer(questionNana);
       break;
-      default: console.log("Something is not quite right...")
+    default:
+      console.log("Something is not quite right...");
       break;
   }
 });
