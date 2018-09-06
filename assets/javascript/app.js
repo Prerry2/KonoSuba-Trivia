@@ -13,7 +13,7 @@ var questionIchi = {
   itsACarp: "Use brands you a thief",
   trap: "You must not be noticed by your target to use it",
   admiralAckbar:
-    "It can be prevented from working by the use of magic or items"
+    "It can be prevented from working by the use of magic or items",
 };
 var questionNii = {
   content: "What are the weaknesses of the Explosion spell?",
@@ -21,7 +21,9 @@ var questionNii = {
   correctNii: "There is an absurd Skill Point investment cost to learn it",
   itsACarp: "The area of effect is small",
   admiralAckbar: "Only members of the Crimson Demon Clan may learn this magic",
-  trap: "Only the undead know the incantation"
+  trap: "Only the undead know the incantation",
+  // https://www.youtube.com/watch?v=coYieIF8I5M
+  pic: 'assets/images/explosion.jpg'
 };
 var questionSan = {
   content: "Farmers:",
