@@ -121,7 +121,7 @@ var incrementQuestion = function() {
   $("#answerDiv").show();
   $("#displayDiv").hide();
   time = 30;
-  itCounts = setInterval(count, 1000);
+  itCounts = setInterval(countTime, 1000);
 };
 var notWrong = function(parameter) {
   questionsAnswered++;
@@ -137,18 +137,57 @@ var notWrong = function(parameter) {
 };
 
 // Starting click events here
-$("#start").on("click", function () {
-  fellAsleep = 0
-  answeredCorrectly = 0
-  answeredIncorrectly = 0
-  questionsAnswered = 0
-  $("#justWrong").text("")
-  $("#lazy").text("")
-  $(".time").text("Time Remaining: " + time)
-  $("#start").hide()
-  incrementQuestion()
-})
+$("#start").on("click", function() {
+  fellAsleep = 0;
+  answeredCorrectly = 0;
+  answeredIncorrectly = 0;
+  questionsAnswered = 0;
+  $("#justWrong").text("");
+  $("#lazy").text("");
+  $(".time").text("Time Remaining: " + time);
+  $("#start").hide();
+  incrementQuestion();
+});
 
-$(document).on('click', '#submit', function () {
+$(document).on("click", "#submit", function() {
+  console.log(document.getElementById('#answer1').value)
 
-})
+  // The selector I was testing above does not seem to work (undefined?)
+  // It still, somehow, did not break anything.
+
+  // if (
+  //   "only responses coresponding to correctIchi and CorrectNii are selected"
+  // ) {
+  //   if (questionsAnswered == 0) {
+  //     return answeredCorrectly(questionIchi);
+  //   } else if (questionsAnswered == 1) {
+  //     return answeredCorrectly(questionNii);
+  //   } else if (questionsAnswered == 2) {
+  //     return answeredCorrectly(questionSan);
+  //   } else if (questionsAnswered == 3) {
+  //     return answeredCorrectly(questionYon);
+  //   } else if (questionsAnswered == 4) {
+  //     return answeredCorrectly(questionGo);
+  //   } else if (questionsAnswered == 5) {
+  //     return answeredCorrectly(questionRoku);
+  //   } else if (questionsAnswered == 6) {
+  //     return answeredCorrectly(questionNana);
+  //   }
+  // } else {
+  //   if (questionsAnswered == 0) {
+  //     return answeredIncorrectly(questionIchi);
+  //   } else if (questionsAnswered == 1) {
+  //     return answeredIncorrectly(questionNii);
+  //   } else if (questionsAnswered == 2) {
+  //     return answeredIncorrectly(questionSan);
+  //   } else if (questionsAnswered == 3) {
+  //     return answeredIncorrectly(questionYon);
+  //   } else if (questionsAnswered == 4) {
+  //     return answeredIncorrectly(questionGo);
+  //   } else if (questionsAnswered == 5) {
+  //     return answeredIncorrectly(questionRoku);
+  //   } else if (questionsAnswered == 6) {
+  //     return answeredIncorrectly(questionNana);
+  //   }
+  // }
+});
