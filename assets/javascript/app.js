@@ -7,63 +7,63 @@ var fifthBox = document.getElementById("answer5");
 var questionIchi = {
   content: "What are the weaknesses of the Steal skill?",
   correctIchi:
-    "Junk items reduce chance of successfully stealing a desirable object.",
+    "Junk items reduce chance of successfully stealing a desirable object",
   correctNii:
-    "It requires the user to  have a similar or greater level than the target.",
-  itsACarp: "Use brands you a thief.",
-  trap: "You must not be noticed by your target to use it.",
+    "It requires the user to  have a similar or greater level than the target",
+  itsACarp: "Use brands you a thief",
+  trap: "You must not be noticed by your target to use it",
   admiralAckbar:
-    "It can be prevented from working by the use of magic or items."
+    "It can be prevented from working by the use of magic or items"
 };
 var questionNii = {
   content: "What are the weaknesses of the Explosion spell?",
-  correctIchi: "It consumes an immense amount of mana.",
-  correctNii: "There is an absurd Skill Point investment cost to learn it.",
-  itsACarp: "The area of effect is small.",
-  admiralAckbar: "Only members of the Crimson Demon Clan may learn this magic.",
-  trap: "Only the undead know the incantation."
+  correctIchi: "It consumes an immense amount of mana",
+  correctNii: "There is an absurd Skill Point investment cost to learn it",
+  itsACarp: "The area of effect is small",
+  admiralAckbar: "Only members of the Crimson Demon Clan may learn this magic",
+  trap: "Only the undead know the incantation"
 };
 var questionSan = {
   content: "Farmers:",
-  correctIchi: "Fight vegetables frequently and are thus high level.",
-  correctNii: "Grow some kinds of fish.",
+  correctIchi: "Fight vegetables frequently and are thus high level",
+  correctNii: "Grow some kinds of fish",
   itsACarp:
-    "Are weaklings that must hire adventurers to be able to do their work.",
-  admiralAckbar: "Struggle to earn enough money to survive.",
-  trap: "Tend to eat food that give poor experience gains."
+    "Are weaklings that must hire adventurers to be able to do their work",
+  admiralAckbar: "Struggle to earn enough money to survive",
+  trap: "Tend to eat food that give poor experience gains"
 };
 var questionYon = {
   content: "The Demon King:",
-  correctIchi: "Is a great threat to humanity.",
-  correctNii: "Fears the Axis Cult.",
-  itsACarp: "Is the most feared entity in the world.",
-  admiralAckbar: "Has godly powers.",
-  trap: "Has a friendly relationship with the Crimson Demon Clan."
+  correctIchi: "Is a great threat to humanity",
+  correctNii: "Fears the Axis Cult",
+  itsACarp: "Is the most feared entity in the world",
+  admiralAckbar: "Has godly powers",
+  trap: "Has a friendly relationship with the Crimson Demon Clan"
 };
 var questionGo = {
   content: "The Axis Cult:",
-  correctIchi: "Is one of the most feared entities in the world.",
-  correctNii: "Besmirches the name and reputation of the Demon King.",
-  itsACarp: "Worships the goddess Eris.",
-  admiralAckbar: "Are known for being a moderate religious group.",
-  trap: "Spit upon worshippers of Aqua."
+  correctIchi: "Is one of the most feared entities in the world",
+  correctNii: "Besmirches the name and reputation of the Demon King",
+  itsACarp: "Worships the goddess Eris",
+  admiralAckbar: "Are known for being a moderate religious group",
+  trap: "Spit upon worshippers of Aqua"
 };
 var questionRoku = {
   content: "Kazuma:",
-  correctIchi: "Sexually harasses Megumin and Darkness frequently.",
+  correctIchi: "Sexually harasses Megumin and Darkness frequently",
   correctNii:
-    "Finds non-standard uses for skills and applies these to great effect.",
-  itsACarp: "Sexually harasses all his party members frequently.",
-  admiralAckbar: "Is a brave man.",
-  trap: "Has strong stats."
+    "Finds non-standard uses for skills and applies these to great effect",
+  itsACarp: "Sexually harasses all his party members frequently",
+  admiralAckbar: "Is a brave man",
+  trap: "Has strong stats"
 };
 var questionNana = {
   content: "The undead:",
-  correctIchi: "Love Aqua.",
-  correctNii: "Are attracted to life.",
-  itsACarp: "Are weak against fire.",
-  admiralAckbar: "Love Chris.",
-  trap: "Are weak against water."
+  correctIchi: "Love Aqua",
+  correctNii: "Are attracted to life",
+  itsACarp: "Are weak against fire",
+  admiralAckbar: "Love Chris",
+  trap: "Are weak against water"
 };
 // Still need image methods to all above objects
 var questionsAnswered = 0;
@@ -119,7 +119,7 @@ var wrongAnswer = function(iExistOnlyToDie) {
   );
   $("#pic").show();
   $("#pic").attr("src", iExistOnlyToDie.img);
-  setTimeout(incrementQuestion, 3000);
+  setTimeout(incrementQuestion, 8000);
 };
 // Forget randomizing the positions, I just need this to be done.
 var incrementQuestion = function() {
@@ -244,32 +244,32 @@ console.log('firstBox.checked' + firstBox.checked)
       case 1:
       if (!firstBox.checked && secondBox.checked && thirdBox.checked && !fourthBox.checked && !fifthBox.checked) {
         return notWrong(questionIchi);
-      } else return wrongAnswer(questionIchi);
+      } else return wrongAnswer(questionNii);
       break;
       case 2:
       if (!firstBox.checked && !secondBox.checked && thirdBox.checked && !fourthBox.checked && fifthBox.checked) {
         return notWrong(questionIchi);
-      } else return wrongAnswer(questionIchi);
+      } else return wrongAnswer(questionSan);
       break;
       case 3:
       if (firstBox.checked && !secondBox.checked && !thirdBox.checked && !fourthBox.checked && fifthBox.checked) {
         return notWrong(questionIchi);
-      } else return wrongAnswer(questionIchi);
+      } else return wrongAnswer(questionYon);
       break;
       case 4:
       if (!firstBox.checked && !secondBox.checked && !thirdBox.checked && fourthBox.checked && fifthBox.checked) {
         return notWrong(questionIchi);
-      } else return wrongAnswer(questionIchi);
+      } else return wrongAnswer(questionGo);
       break;
       case 5:
       if (!firstBox.checked && secondBox.checked && !thirdBox.checked && !fourthBox.checked && fifthBox.checked) {
         return notWrong(questionIchi);
-      } else return wrongAnswer(questionIchi);
+      } else return wrongAnswer(questionRoku);
       break;
       case 6:
       if (!firstBox.checked && !secondBox.checked && !thirdBox.checked && fourthBox.checked && fifthBox.checked) {
         return notWrong(questionIchi);
-      } else return wrongAnswer(questionIchi);
+      } else return wrongAnswer(questionNana);
       break;
       default: console.log("Something is not quite right...")
       break;
