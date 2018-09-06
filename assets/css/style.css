@@ -2,9 +2,5 @@ body {
     background-image: url("https://media.giphy.com/media/ERITeC4vJCEne/source.gif");
 }
 div {
-    background-color: greenyellow;
-opacity: 0.7;
-}
-h1, h3, p, button, input, label, img {
-    opacity: 1;
+    background-color: rgba(50,205,50,.40)
 }
