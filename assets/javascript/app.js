@@ -186,8 +186,8 @@ var incrementQuestion = function() {
       break;
     case 7:
       $(".question").text("Quiz Complete. Your Results:");
-      $("#rightWrong").text(answeredCorrect + " Answers Right!");
-      $("#justWrong").text(answeredWrong + " Answers Wrong!");
+      $("#rightWrong").text(answeredCorrectly + " Answers Right!");
+      $("#justWrong").text(answeredIncorrectly + " Answers Wrong!");
       $("#lazy").text(fellAsleep + " Unanswered.");
       $("#start")
         .text("Start Over?")
@@ -229,43 +229,45 @@ $("#start").on("click", function() {
 });
 
 $(document).on("click", "#submit", function() {
-  // console.log(document.getElementById("answer1").checked);
+  console.log(document.getElementById("answer1").checked);
   // Above was used to figure out the checkboxes and how to retrieve their state
   // Left in for reference and memory reinforcement.
+console.log('firstBox' + firstBox)
+console.log('firstBox.checked' + firstBox.checked)
 
   switch (questionsAnswered) {
     case 0:
-      if (firstBox.checked && fourthBox.checked && !secondBox.checked && !thirdBox.checked && !fifthBox) {
+      if (firstBox.checked && fourthBox.checked && !secondBox.checked && !thirdBox.checked && !fifthBox.checked) {
         return notWrong(questionIchi);
       } else return wrongAnswer(questionIchi);
       break;
       case 1:
-      if (!firstBox.checked && secondBox.checked && thirdBox.checked && !fourthBox.checked && !fifthBox) {
+      if (!firstBox.checked && secondBox.checked && thirdBox.checked && !fourthBox.checked && !fifthBox.checked) {
         return notWrong(questionIchi);
       } else return wrongAnswer(questionIchi);
       break;
       case 2:
-      if (!firstBox.checked && !secondBox.checked && thirdBox.checked && !fourthBox.checked && fifthBox) {
+      if (!firstBox.checked && !secondBox.checked && thirdBox.checked && !fourthBox.checked && fifthBox.checked) {
         return notWrong(questionIchi);
       } else return wrongAnswer(questionIchi);
       break;
       case 3:
-      if (firstBox.checked && !secondBox.checked && !thirdBox.checked && !fourthBox.checked && fifthBox) {
+      if (firstBox.checked && !secondBox.checked && !thirdBox.checked && !fourthBox.checked && fifthBox.checked) {
         return notWrong(questionIchi);
       } else return wrongAnswer(questionIchi);
       break;
       case 4:
-      if (!firstBox.checked && !secondBox.checked && !thirdBox.checked && fourthBox.checked && fifthBox) {
+      if (!firstBox.checked && !secondBox.checked && !thirdBox.checked && fourthBox.checked && fifthBox.checked) {
         return notWrong(questionIchi);
       } else return wrongAnswer(questionIchi);
       break;
       case 5:
-      if (!firstBox.checked && secondBox.checked && !thirdBox.checked && !fourthBox.checked && fifthBox) {
+      if (!firstBox.checked && secondBox.checked && !thirdBox.checked && !fourthBox.checked && fifthBox.checked) {
         return notWrong(questionIchi);
       } else return wrongAnswer(questionIchi);
       break;
       case 6:
-      if (!firstBox.checked && !secondBox.checked && !thirdBox.checked && fourthBox.checked && fifthBox) {
+      if (!firstBox.checked && !secondBox.checked && !thirdBox.checked && fourthBox.checked && fifthBox.checked) {
         return notWrong(questionIchi);
       } else return wrongAnswer(questionIchi);
       break;
