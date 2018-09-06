@@ -14,6 +14,7 @@ var questionIchi = {
   trap: "You must not be noticed by your target to use it",
   admiralAckbar:
     "It can be prevented from working by the use of magic or items",
+    img: 'assets/images/steal.jpg'
 };
 var questionNii = {
   content: "What are the weaknesses of the Explosion spell?",
@@ -23,7 +24,7 @@ var questionNii = {
   admiralAckbar: "Only members of the Crimson Demon Clan may learn this magic",
   trap: "Only the undead know the incantation",
   // https://www.youtube.com/watch?v=coYieIF8I5M
-  pic: 'assets/images/explosion.jpg'
+  img: 'assets/images/explosion.jpg'
 };
 var questionSan = {
   content: "Farmers:",
@@ -32,7 +33,8 @@ var questionSan = {
   itsACarp:
     "Are weaklings that must hire adventurers to be able to do their work",
   admiralAckbar: "Struggle to earn enough money to survive",
-  trap: "Tend to eat food that give poor experience gains"
+  trap: "Tend to eat food that give poor experience gains",
+  img: 'assets/images/cabbage.jpg'
 };
 var questionYon = {
   content: "The Demon King:",
@@ -40,7 +42,8 @@ var questionYon = {
   correctNii: "Fears the Axis Cult",
   itsACarp: "Is the most feared entity in the world",
   admiralAckbar: "Has godly powers",
-  trap: "Has a friendly relationship with the Crimson Demon Clan"
+  trap: "Has a friendly relationship with the Crimson Demon Clan",
+  img: 'assets/images/demonlolwut.png'
 };
 var questionGo = {
   content: "The Axis Cult:",
@@ -48,7 +51,8 @@ var questionGo = {
   correctNii: "Besmirches the name and reputation of the Demon King",
   itsACarp: "Worships the goddess Eris",
   admiralAckbar: "Are known for being a moderate religious group",
-  trap: "Spit upon worshippers of Aqua"
+  trap: "Spit upon worshippers of Aqua",
+  img: 'assets/images/aqua.jpg'
 };
 var questionRoku = {
   content: "Kazuma:",
@@ -57,7 +61,8 @@ var questionRoku = {
     "Finds non-standard uses for skills and applies these to great effect",
   itsACarp: "Sexually harasses all his party members frequently",
   admiralAckbar: "Is a brave man",
-  trap: "Has strong stats"
+  trap: "Has strong stats",
+  img: 'assets/images/kazuma.jpg'
 };
 var questionNana = {
   content: "The undead:",
@@ -65,7 +70,8 @@ var questionNana = {
   correctNii: "Are attracted to life",
   itsACarp: "Are weak against fire",
   admiralAckbar: "Love Chris",
-  trap: "Are weak against water"
+  trap: "Are weak against water",
+  img: 'assets/images/undead.png'
 };
 // Still need image methods to all above objects
 var questionsAnswered = 0;
@@ -121,7 +127,7 @@ var wrongAnswer = function(iExistOnlyToDie) {
   );
   $("#pic").show();
   $("#pic").attr("src", iExistOnlyToDie.img);
-  setTimeout(incrementQuestion, 8000);
+  setTimeout(incrementQuestion, 6000);
 };
 // Forget randomizing the positions, I just need this to be done.
 var incrementQuestion = function() {
