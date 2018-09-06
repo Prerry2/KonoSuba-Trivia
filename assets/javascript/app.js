@@ -1,3 +1,9 @@
+var firstBox = document.getElementById("answer1");
+var secondBox = document.getElementById("answer2");
+var thirdBox = document.getElementById("answer3");
+var fourthBox = document.getElementById("answer4");
+var fifthBox = document.getElementById("answer5");
+
 var questionIchi = {
   content: "What are the weaknesses of the Steal skill?",
   correctIchi:
@@ -108,20 +114,93 @@ var wrongAnswer = function(iExistOnlyToDie) {
   $("#rightWrong").text(
     "The Correct Answers were: " +
       iExistOnlyToDie.correctIchi +
-      "and " +
+      " and " +
       iExistOnlyToDie.correctNii
   );
   $("#pic").show();
   $("#pic").attr("src", iExistOnlyToDie.img);
   setTimeout(incrementQuestion, 3000);
 };
-// This needs a logic section added to handle randomization of placement of answers
-// And, of course, the placement itself ($('label[for="#answer1"').text(questionIchi.correctIchi) etc)
+// Forget randomizing the positions, I just need this to be done.
 var incrementQuestion = function() {
   $("#answerDiv").show();
   $("#displayDiv").hide();
   time = 30;
   itCounts = setInterval(countTime, 1000);
+  switch (questionsAnswered) {
+    case 0:
+      $(".question").text(questionIchi.content);
+      $("label[for='answer1']").text(questionIchi.correctNii);
+      $("label[for='answer2']").text(questionIchi.trap);
+      $("label[for='answer3']").text(questionIchi.admiralAckbar);
+      $("label[for='answer4']").text(questionIchi.correctIchi);
+      $("label[for='answer5']").text(questionIchi.itsACarp);
+      break;
+    case 1:
+      $(".question").text(questionNii.content);
+      $("label[for='answer1']").text(questionNii.trap);
+      $("label[for='answer2']").text(questionNii.correctIchi);
+      $("label[for='answer3']").text(questionNii.correctNii);
+      $("label[for='answer4']").text(questionNii.admiralAckbar);
+      $("label[for='answer5']").text(questionNii.itsACarp);
+      break;
+    case 2:
+      $(".question").text(questionSan.content);
+      $("label[for='answer1']").text(questionSan.itsACarp);
+      $("label[for='answer2']").text(questionSan.admiralAckbar);
+      $("label[for='answer3']").text(questionSan.correctIchi);
+      $("label[for='answer4']").text(questionSan.trap);
+      $("label[for='answer5']").text(questionSan.correctNii);
+      break;
+    case 3:
+      $(".question").text(questionYon.content);
+      $("label[for='answer1']").text(questionYon.correctIchi);
+      $("label[for='answer2']").text(questionYon.trap);
+      $("label[for='answer3']").text(questionYon.admiralAckbar);
+      $("label[for='answer4']").text(questionYon.itsACarp);
+      $("label[for='answer5']").text(questionYon.correctNii);
+      break;
+    case 4:
+      $(".question").text(questionGo.content);
+      $("label[for='answer1']").text(questionGo.itsACarp);
+      $("label[for='answer2']").text(questionGo.trap);
+      $("label[for='answer3']").text(questionGo.admiralAckbar);
+      $("label[for='answer4']").text(questionGo.correctIchi);
+      $("label[for='answer5']").text(questionGo.correctNii);
+      break;
+    case 5:
+      $(".question").text(questionRoku.content);
+      $("label[for='answer1']").text(questionRoku.trap);
+      $("label[for='answer2']").text(questionRoku.correctIchi);
+      $("label[for='answer3']").text(questionRoku.admiralAckbar);
+      $("label[for='answer4']").text(questionRoku.itsACarp);
+      $("label[for='answer5']").text(questionRoku.correctNii);
+      break;
+    case 6:
+      $(".question").text(questionNana.content);
+      $("label[for='answer1']").text(questionNana.trap);
+      $("label[for='answer2']").text(questionNana.itsACarp);
+      $("label[for='answer3']").text(questionNana.admiralAckbar);
+      $("label[for='answer4']").text(questionNana.correctIchi);
+      $("label[for='answer5']").text(questionNana.correctNii);
+      break;
+    case 7:
+      $(".question").text("Quiz Complete. Your Results:");
+      $("#rightWrong").text(answeredCorrect + " Answers Right!");
+      $("#justWrong").text(answeredWrong + " Answers Wrong!");
+      $("#lazy").text(fellAsleep + " Unanswered.");
+      $("#start")
+        .text("Start Over?")
+        .show();
+      clearInterval(itCounts);
+      $("#answerDiv").hide();
+      $("#displayDiv").show();
+      $("#pic").hide();
+      break;
+    default:
+      console.log("Something broke!");
+      break;
+  }
 };
 var notWrong = function(parameter) {
   questionsAnswered++;
@@ -150,44 +229,47 @@ $("#start").on("click", function() {
 });
 
 $(document).on("click", "#submit", function() {
-  console.log(document.getElementById('#answer1').value)
+  // console.log(document.getElementById("answer1").checked);
+  // Above was used to figure out the checkboxes and how to retrieve their state
+  // Left in for reference and memory reinforcement.
 
-  // The selector I was testing above does not seem to work (undefined?)
-  // It still, somehow, did not break anything.
-
-  // if (
-  //   "only responses coresponding to correctIchi and CorrectNii are selected"
-  // ) {
-  //   if (questionsAnswered == 0) {
-  //     return answeredCorrectly(questionIchi);
-  //   } else if (questionsAnswered == 1) {
-  //     return answeredCorrectly(questionNii);
-  //   } else if (questionsAnswered == 2) {
-  //     return answeredCorrectly(questionSan);
-  //   } else if (questionsAnswered == 3) {
-  //     return answeredCorrectly(questionYon);
-  //   } else if (questionsAnswered == 4) {
-  //     return answeredCorrectly(questionGo);
-  //   } else if (questionsAnswered == 5) {
-  //     return answeredCorrectly(questionRoku);
-  //   } else if (questionsAnswered == 6) {
-  //     return answeredCorrectly(questionNana);
-  //   }
-  // } else {
-  //   if (questionsAnswered == 0) {
-  //     return answeredIncorrectly(questionIchi);
-  //   } else if (questionsAnswered == 1) {
-  //     return answeredIncorrectly(questionNii);
-  //   } else if (questionsAnswered == 2) {
-  //     return answeredIncorrectly(questionSan);
-  //   } else if (questionsAnswered == 3) {
-  //     return answeredIncorrectly(questionYon);
-  //   } else if (questionsAnswered == 4) {
-  //     return answeredIncorrectly(questionGo);
-  //   } else if (questionsAnswered == 5) {
-  //     return answeredIncorrectly(questionRoku);
-  //   } else if (questionsAnswered == 6) {
-  //     return answeredIncorrectly(questionNana);
-  //   }
-  // }
+  switch (questionsAnswered) {
+    case 0:
+      if (firstBox.checked && fourthBox.checked && !secondBox.checked && !thirdBox.checked && !fifthBox) {
+        return notWrong(questionIchi);
+      } else return wrongAnswer(questionIchi);
+      break;
+      case 1:
+      if (!firstBox.checked && secondBox.checked && thirdBox.checked && !fourthBox.checked && !fifthBox) {
+        return notWrong(questionIchi);
+      } else return wrongAnswer(questionIchi);
+      break;
+      case 2:
+      if (!firstBox.checked && !secondBox.checked && thirdBox.checked && !fourthBox.checked && fifthBox) {
+        return notWrong(questionIchi);
+      } else return wrongAnswer(questionIchi);
+      break;
+      case 3:
+      if (firstBox.checked && !secondBox.checked && !thirdBox.checked && !fourthBox.checked && fifthBox) {
+        return notWrong(questionIchi);
+      } else return wrongAnswer(questionIchi);
+      break;
+      case 4:
+      if (!firstBox.checked && !secondBox.checked && !thirdBox.checked && fourthBox.checked && fifthBox) {
+        return notWrong(questionIchi);
+      } else return wrongAnswer(questionIchi);
+      break;
+      case 5:
+      if (!firstBox.checked && secondBox.checked && !thirdBox.checked && !fourthBox.checked && fifthBox) {
+        return notWrong(questionIchi);
+      } else return wrongAnswer(questionIchi);
+      break;
+      case 6:
+      if (!firstBox.checked && !secondBox.checked && !thirdBox.checked && fourthBox.checked && fifthBox) {
+        return notWrong(questionIchi);
+      } else return wrongAnswer(questionIchi);
+      break;
+      default: console.log("Something is not quite right...")
+      break;
+  }
 });
