@@ -137,4 +137,18 @@ var notWrong = function(parameter) {
 };
 
 // Starting click events here
-$('')
+$("#start").on("click", function () {
+  fellAsleep = 0
+  answeredCorrectly = 0
+  answeredIncorrectly = 0
+  questionsAnswered = 0
+  $("#justWrong").text("")
+  $("#lazy").text("")
+  $(".time").text("Time Remaining: " + time)
+  $("#start").hide()
+  incrementQuestion()
+})
+
+$(document).on('click', '#submit', function () {
+
+})
